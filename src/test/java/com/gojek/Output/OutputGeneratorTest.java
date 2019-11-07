@@ -29,11 +29,8 @@ public class OutputGeneratorTest {
 
     @Test
     public void testGenerate() {
-        OutputGenerator.generate();
+        OutputGenerator.generate("create_parking_lot 6");
         Assert.assertEquals(outContent.toString(), "Created a parking lot with 6 slots\n");
 
     }
-
-
-
 }
