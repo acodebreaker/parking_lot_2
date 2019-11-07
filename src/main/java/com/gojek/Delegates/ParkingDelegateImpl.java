@@ -47,6 +47,7 @@ public class ParkingDelegateImpl implements Delegates.ParkingDelegate {
         List<ParkingSlot> slots = parkingLotService.getStatusOfParkingLot();
 
         printParkingStatus(slots);
+
     }
 
     @Override
@@ -72,13 +73,27 @@ public class ParkingDelegateImpl implements Delegates.ParkingDelegate {
     }
 
     void printParkingStatus(List<ParkingSlot> slots) {
+        System.out.println("Slot No.  Registration No  Colour");
+        for(ParkingSlot parkingSlot: slots) {
+            if(parkingSlot.getVehicleParked()!=null){
+                String column1 = String.valueOf(parkingSlot.getSlotNumber());
+                String column2 = parkingSlot.getVehicleParked().getRegistrationNumber();
+                String column3 = parkingSlot.getVehicleParked().getColor();
 
-        System.out.println("Slot No." + "\t" + "Registration No" + "\t" + "Colour");
-        for (ParkingSlot slot : slots) {
+                int col1Length = 10;
+                int col2Length = 17;
 
-            if (slot.getVehicleParked() != null) {
-                System.out.println(slot.getSlotNumber() + "\t\t" + slot.getVehicleParked().getRegistrationNumber() + "\t\t" + slot.getVehicleParked().getColor());
+                System.out.print(column1);
+                for (int i = 0; i < col1Length -column1.length(); i++)
+                    System.out.print(" ");
 
+
+                System.out.print(column2);
+                for (int i = 0; i < col2Length -column2.length(); i++)
+                    System.out.print(" ");
+
+                System.out.print(column3);
+                System.out.println();
             }
         }
     }
