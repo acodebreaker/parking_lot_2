@@ -32,8 +32,13 @@ public class ParkingDelegateImpl implements Delegates.ParkingDelegate {
     }
 
     @Override
-    public void leaveParkingSlot(int parkingSlotNumber) throws NoSuchSlotException {
-        parkingLotService.leaveParkingSlot(parkingSlotNumber);
+    public void leaveParkingSlot(int parkingSlotNumber) {
+        try {
+            parkingLotService.leaveParkingSlot(parkingSlotNumber);
+            System.out.println("Slot number " + parkingSlotNumber + " is free");
+        } catch (NoSuchSlotException e) {
+            System.out.println("Not found");
+        }
     }
 
     @Override

@@ -9,7 +9,7 @@ public interface ParkingDelegate {
 
     void parkVehicle(Vehicle vehicle);
 
-    void leaveParkingSlot(int parkingSlotNumber) throws NoSuchSlotException;
+    void leaveParkingSlot(int parkingSlotNumber);
 
     void getStatusOfParkingLot();
 

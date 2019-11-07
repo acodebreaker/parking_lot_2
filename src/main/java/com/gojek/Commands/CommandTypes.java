@@ -28,6 +28,13 @@ public enum CommandTypes implements Command {
         public void takeAction(String[] inputValues, ParkingDelegate parkingDelegate) {
             parkingDelegate.getRegistrationNumbersForCarsWithColor(inputValues[1]);
         }
+    },
+    LEAVE {
+        @Override
+        public void takeAction(String[] inputValues, ParkingDelegate parkingDelegate) {
+            int slotNumber = Integer.parseInt(inputValues[1]);
+            parkingDelegate.leaveParkingSlot(slotNumber);
+        }
     }
 }
 
