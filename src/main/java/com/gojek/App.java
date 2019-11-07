@@ -20,7 +20,7 @@ public class App {
         }
     }
 
-    static void readFromFile(String filepath) throws FileNotFoundException, IOException {
+    static void readFromFile(String filepath) throws IOException {
         BufferedReader reader;
         try {
             reader = new BufferedReader(new FileReader(filepath));
