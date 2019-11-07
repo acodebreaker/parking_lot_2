@@ -35,7 +35,14 @@ public class ParkingLotServiceImpl implements Service.ParkingLotService {
 
     @Override
     public ParkingSlot parkVehicle(Vehicle vehicle) throws SlotNotAvailableException {
-        return null;
+        if (availableSlots.isEmpty()) {
+            throw new SlotNotAvailableException("slots are not available");
+        }
+        ParkingSlot slot = availableSlots.poll();
+        slot.setVehicleParked(vehicle);
+        parkingLot.getParkingSlots().get(slot.getSlotNumber() - 1).setVehicleParked(vehicle);
+        availableSlots.remove(vehicle);
+        return slot;
     }
 
     @Override
