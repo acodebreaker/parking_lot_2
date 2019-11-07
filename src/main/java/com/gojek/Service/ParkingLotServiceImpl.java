@@ -48,7 +48,11 @@ public class ParkingLotServiceImpl implements Service.ParkingLotService {
     @Override
     public void leaveParkingSlot(int parkingSlotNumber) throws NoSuchSlotException {
         try {
-            parkingLot.getParkingSlots().get(parkingSlotNumber - 1).setVehicleParked(null);
+            ParkingSlot parkingSlot=parkingLot.getParkingSlots().get(parkingSlotNumber-1);
+            if(parkingSlot.getVehicleParked()==null)
+                throw new IndexOutOfBoundsException();
+
+            parkingSlot.setVehicleParked(null);
             availableSlots.add(parkingLot.getParkingSlots().get(parkingSlotNumber - 1));
         } catch (IndexOutOfBoundsException e) {
             throw new NoSuchSlotException("There is no such parking lot with slot number" + parkingSlotNumber);

@@ -51,10 +51,13 @@ public class OutputGeneratorTest {
         OutputGenerator.generate("create_parking_lot 6");
         OutputGenerator.generate("park KA-01-HH-1234 White");
         OutputGenerator.generate("leave 1");
+        OutputGenerator.generate("leave 2");
+
         String []expected= outContent.toString().split("\n");
         Assert.assertEquals(expected[0], "Created a parking lot with 6 slots");
         Assert.assertEquals(expected[1],"Allocated slot number: 1");
         Assert.assertEquals(expected[2],"Slot number 1 is free");
+        Assert.assertEquals(expected[3],"Not found");
     }
 
     @Test

@@ -69,7 +69,7 @@ public class ParkingDelegateImpl implements Delegates.ParkingDelegate {
     @Override
     public void getRegistrationNumbersForCarsWithColor(String color) {
         List<String> registrationNumbers = parkingLotService.getRegistrationNumbersForCarsWithColor(color);
-        System.out.println(registrationNumbers.stream().map(Object::toString).collect(Collectors.joining(",")).toString());
+        System.out.println(registrationNumbers.stream().map(Object::toString).collect(Collectors.joining(", ")).toString());
     }
 
     void printParkingStatus(List<ParkingSlot> slots) {
