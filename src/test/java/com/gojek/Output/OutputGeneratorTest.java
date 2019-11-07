@@ -102,9 +102,19 @@ public class OutputGeneratorTest {
 
     }
 
+    @Test
+    public void testGenerateWhenGetStatus() {
+        OutputGenerator.generate("create_parking_lot 3");
+        OutputGenerator.generate("park KA-01-HH-1234 White");
+        OutputGenerator.generate("park KA-01-HH-9876 White");
+        OutputGenerator.generate("status");
 
+        String []expected= outContent.toString().split("\n");
+        Assert.assertEquals(expected[0], "Created a parking lot with 3 slots");
+        Assert.assertEquals(expected[1],"Allocated slot number: 1");
+        Assert.assertEquals(expected[2],"Allocated slot number: 2");
+        Assert.assertEquals(expected[3], "Slot No.  Registration No    Colour");
 
-
-
+    }
 
 }

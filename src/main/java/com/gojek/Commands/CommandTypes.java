@@ -47,6 +47,18 @@ public enum CommandTypes implements Command {
 
             parkingDelegate.getSlotNumberForRegistrationNumber(inputValues[1]);
         }
+    },
+    STATUS {
+        @Override
+        public void takeAction(String[] inputValues, ParkingDelegate parkingDelegate) {
+            parkingDelegate.getStatusOfParkingLot();
+        }
+    },
+    EXIT {
+        @Override
+        public void takeAction(String[] inputValues, ParkingDelegate parkingDelegate) {
+            System.exit(0);
+        }
     }
 }
 
