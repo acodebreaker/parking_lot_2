@@ -81,13 +81,12 @@ public class ParkingLotServiceImplTest {
 
     @Test
     public void testGetRegistrationNumbersForCarsWithColor() throws SlotNotAvailableException {
+        parkingLotService.parkVehicle(mockVehicle);
+        List<String> expected = new ArrayList<>();
+        expected.add(mockRegistrationNumber);
 
+        Assert.assertEquals(expected, parkingLotService.getRegistrationNumbersForCarsWithColor(mockColor));
 
     }
-
-
-
-
-
 
 }
