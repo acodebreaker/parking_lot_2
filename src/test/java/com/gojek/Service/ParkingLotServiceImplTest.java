@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -59,7 +60,12 @@ public class ParkingLotServiceImplTest {
 
     @Test
     public void testGetSlotNumberByColor() throws SlotNotAvailableException {
+        parkingLotService.parkVehicle(mockVehicle);
+        parkingLotService.parkVehicle(mockVehicle);
+        List<Integer> actualSlotNumbers = parkingLotService.getSlotNumbersForCarsWithColor("red");
+        List<Integer> expectedSlotNumbers = new ArrayList<Integer>(Arrays.asList(1, 2));
 
+        Assert.assertEquals(expectedSlotNumbers, actualSlotNumbers);
 
     }
 
