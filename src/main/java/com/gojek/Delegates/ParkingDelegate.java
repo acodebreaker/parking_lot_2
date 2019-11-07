@@ -7,7 +7,7 @@ import com.gojek.Model.Vehicle;
 public interface ParkingDelegate {
     void createParkingLot(int totalSlots);
 
-    void parkVehicle(Vehicle vehicle) throws SlotNotAvailableException;
+    void parkVehicle(Vehicle vehicle);
 
     void leaveParkingSlot(int parkingSlotNumber) throws NoSuchSlotException;
 

@@ -2,6 +2,7 @@ package com.gojek.Delegates;
 
 import com.gojek.Exceptions.NoSuchSlotException;
 import com.gojek.Exceptions.SlotNotAvailableException;
+import com.gojek.Model.ParkingSlot;
 import com.gojek.Model.Vehicle;
 
 public class ParkingDelegateImpl implements Delegates.ParkingDelegate {
@@ -14,8 +15,15 @@ public class ParkingDelegateImpl implements Delegates.ParkingDelegate {
     }
 
     @Override
-    public void parkVehicle(Vehicle vehicle) throws SlotNotAvailableException {
-        parkingLotService.parkVehicle(vehicle);
+    public void parkVehicle(Vehicle vehicle) {
+        try {
+            ParkingSlot slot = parkingLotService.parkVehicle(vehicle);
+            if (slot == null)
+                return;
+            System.out.println("Allocated slot number: " + slot.getSlotNumber());
+        } catch (SlotNotAvailableException e) {
+            System.out.println("Sorry, parking lot is full");
+        }
     }
 
     @Override
