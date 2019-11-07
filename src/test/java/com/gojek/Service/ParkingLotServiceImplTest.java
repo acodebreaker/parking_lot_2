@@ -17,10 +17,13 @@ public class ParkingLotServiceImplTest {
 
     ParkingLotServiceImpl parkingLotService;
 
+    Vehicle mockVehicle;
+
     @Before
     public void setUp() throws Exception {
         parkingLotService = new ParkingLotServiceImpl();
         parkingLotService.createParkingLot(5);
+        mockVehicle=new Vehicle("red","MH 12 RS 1234");
     }
 
 
@@ -35,7 +38,6 @@ public class ParkingLotServiceImplTest {
     @Test
     public void testParkVehicle() throws SlotNotAvailableException {
         Assert.assertEquals(parkingLotService.getAvailableSlots().peek().getSlotNumber(), 1);
-        Vehicle mockVehicle= new Vehicle("red","MH 12 RS 1234");
         parkingLotService.parkVehicle(mockVehicle);
 
         Assert.assertEquals(parkingLotService.getAvailableSlots().peek().getSlotNumber(), 2);
@@ -46,7 +48,12 @@ public class ParkingLotServiceImplTest {
     @Test
     public void testLeaveSpot() throws SlotNotAvailableException, NoSuchSlotException {
 
-
+        parkingLotService.parkVehicle(mockVehicle);
+        parkingLotService.parkVehicle(mockVehicle);
+        parkingLotService.leaveParkingSlot(2);
+        Assert.assertEquals(parkingLotService.getAvailableSlots().peek().getSlotNumber(), 2);
+        parkingLotService.leaveParkingSlot(1);
+        Assert.assertEquals(parkingLotService.getAvailableSlots().peek().getSlotNumber(), 1);
 
     }
 
