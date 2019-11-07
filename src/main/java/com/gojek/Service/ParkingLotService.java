@@ -1,5 +1,10 @@
 package Service;
 
+import com.gojek.Exceptions.NoSuchSlotException;
+import com.gojek.Exceptions.SlotNotAvailableException;
+import com.gojek.Model.ParkingSlot;
+import com.gojek.Model.Vehicle;
+
 import java.util.List;
 
 public interface ParkingLotService {

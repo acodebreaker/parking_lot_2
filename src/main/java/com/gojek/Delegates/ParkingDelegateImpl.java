@@ -1,11 +1,14 @@
 package com.gojek.Delegates;
 
+import com.gojek.Model.Vehicle;
+
 public class ParkingDelegateImpl implements Delegates.ParkingDelegate {
 
+    Service.ParkingLotService parkingLotService;
 
     @Override
     public void createParkingLot(int totalSlots) {
-
+        parkingLotService.createParkingLot(totalSlots);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package Delegates;
 
+import com.gojek.Model.Vehicle;
+
 public interface ParkingDelegate {
     void createParkingLot(int totalSlots);
 
