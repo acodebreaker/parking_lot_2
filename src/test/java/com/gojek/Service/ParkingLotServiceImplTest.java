@@ -75,16 +75,13 @@ public class ParkingLotServiceImplTest {
     @Test
     public void testGetSlotNumberForRegistrationNumber() throws SlotNotAvailableException {
         parkingLotService.parkVehicle(mockVehicle);
-        int slotNumber = parkingLotService.getSlotNumberForRegistrationNumber(mockRegistrationNumber);
-        Assert.assertEquals(1, slotNumber);
+        Assert.assertEquals(1, parkingLotService.getSlotNumberForRegistrationNumber(mockRegistrationNumber));
     }
 
     @Test
     public void testGetRegistrationNumbersForCarsWithColor() throws SlotNotAvailableException {
         parkingLotService.parkVehicle(mockVehicle);
-        List<String> expected = new ArrayList<>();
-        expected.add(mockRegistrationNumber);
-
+        List<String> expected = new ArrayList<>(Arrays.asList(mockRegistrationNumber));
         Assert.assertEquals(expected, parkingLotService.getRegistrationNumbersForCarsWithColor(mockColor));
 
     }

@@ -90,7 +90,20 @@ public class ParkingLotServiceImpl implements Service.ParkingLotService {
 
     @Override
     public List<String> getRegistrationNumbersForCarsWithColor(String color) {
-        return null;
+        List<ParkingSlot> slots = parkingLot.getParkingSlots();
+        List<String> registrationNumbers = new ArrayList<>();
+        for (ParkingSlot slot : slots) {
+            if (slot.getVehicleParked() == null)
+                continue;
+            if (slot.getVehicleParked().getColor().equals(color))
+                registrationNumbers.add(slot.getVehicleParked().getRegistrationNumber());
+
+        }
+        if (registrationNumbers.size() == 0)
+            return null;
+        else
+            return registrationNumbers;
+
     }
 
 }
