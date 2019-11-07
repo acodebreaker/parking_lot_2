@@ -64,7 +64,17 @@ public class ParkingLotServiceImpl implements Service.ParkingLotService {
 
     @Override
     public List<Integer> getSlotNumbersForCarsWithColor(String color) {
-        return null;
+        List<ParkingSlot> slots = parkingLot.getParkingSlots();
+        List<Integer> cars = new ArrayList<>();
+        for (int i = 0; i < slots.size(); i++) {
+            ParkingSlot parkingSlot = slots.get(i);
+            Vehicle vehicle = parkingSlot.getVehicleParked();
+            if (vehicle != null && vehicle.getColor().equals(color)) {
+                cars.add(i + 1);
+            }
+
+        }
+        return cars;
     }
 
     @Override
