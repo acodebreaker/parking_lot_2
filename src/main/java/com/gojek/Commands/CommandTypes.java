@@ -1,7 +1,6 @@
 package com.gojek.Commands;
 
 import Delegates.ParkingDelegate;
-import com.gojek.Exceptions.SlotNotAvailableException;
 import com.gojek.Model.Vehicle;
 
 public enum CommandTypes implements Command {
@@ -10,7 +9,7 @@ public enum CommandTypes implements Command {
     PARK {
         @Override
         public void takeAction(String[] inputValues, ParkingDelegate parkingDelegate) {
-            parkingDelegate.parkVehicle(new Vehicle(inputValues[2],inputValues[1]));
+            parkingDelegate.parkVehicle(new Vehicle(inputValues[2], inputValues[1]));
         }
     },
     CREATE_PARKING_LOT {

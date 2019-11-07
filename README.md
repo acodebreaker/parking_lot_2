@@ -7,6 +7,7 @@ sh bin/setup.sh
 
 
 
+
 For running the project using fileInput :-
 
 sh bin/parking_lot.sh input_file.txt
@@ -16,6 +17,9 @@ sh bin/parking_lot.sh input_file.txt
 
 
 
+
 For running the project using input from ConsoleInput/Terminal :-
 
 sh bin/parking_lot.sh
+
+##run above inside assignment directory

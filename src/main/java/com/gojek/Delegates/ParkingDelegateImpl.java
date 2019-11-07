@@ -16,7 +16,7 @@ public class ParkingDelegateImpl implements Delegates.ParkingDelegate {
     @Override
     public void createParkingLot(int totalSlots) {
         parkingLotService.createParkingLot(totalSlots);
-        System.out.println("Created a parking lot with " + totalSlots + " slots" );
+        System.out.println("Created a parking lot with " + totalSlots + " slots");
     }
 
     @Override
@@ -51,8 +51,7 @@ public class ParkingDelegateImpl implements Delegates.ParkingDelegate {
     @Override
     public void getSlotNumbersForCarsWithColor(String color) {
         List<Integer> slotNumbers = parkingLotService.getSlotNumbersForCarsWithColor(color);
-        if(slotNumbers==null||slotNumbers.isEmpty())
-        {
+        if (slotNumbers == null || slotNumbers.isEmpty()) {
             System.out.println("Not found");
             return;
         }
@@ -72,17 +71,17 @@ public class ParkingDelegateImpl implements Delegates.ParkingDelegate {
     @Override
     public void getRegistrationNumbersForCarsWithColor(String color) {
         List<String> registrationNumbers = parkingLotService.getRegistrationNumbersForCarsWithColor(color);
-        if(registrationNumbers==null ||registrationNumbers.isEmpty())
-        {
-            System.out.println("Not found"); return;
+        if (registrationNumbers == null || registrationNumbers.isEmpty()) {
+            System.out.println("Not found");
+            return;
         }
         System.out.println(registrationNumbers.stream().map(Object::toString).collect(Collectors.joining(", ")).toString());
     }
 
     void printParkingStatus(List<ParkingSlot> slots) {
         System.out.println("Slot No.  Registration No  Colour");
-        for(ParkingSlot parkingSlot: slots) {
-            if(parkingSlot.getVehicleParked()!=null){
+        for (ParkingSlot parkingSlot : slots) {
+            if (parkingSlot.getVehicleParked() != null) {
                 String column1 = String.valueOf(parkingSlot.getSlotNumber());
                 String column2 = parkingSlot.getVehicleParked().getRegistrationNumber();
                 String column3 = parkingSlot.getVehicleParked().getColor();
@@ -91,12 +90,12 @@ public class ParkingDelegateImpl implements Delegates.ParkingDelegate {
                 int col2Length = 17;
 
                 System.out.print(column1);
-                for (int i = 0; i < col1Length -column1.length(); i++)
+                for (int i = 0; i < col1Length - column1.length(); i++)
                     System.out.print(" ");
 
 
                 System.out.print(column2);
-                for (int i = 0; i < col2Length -column2.length(); i++)
+                for (int i = 0; i < col2Length - column2.length(); i++)
                     System.out.print(" ");
 
                 System.out.print(column3);

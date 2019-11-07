@@ -1,7 +1,5 @@
 package Delegates;
 
-import com.gojek.Exceptions.NoSuchSlotException;
-import com.gojek.Exceptions.SlotNotAvailableException;
 import com.gojek.Model.Vehicle;
 
 public interface ParkingDelegate {

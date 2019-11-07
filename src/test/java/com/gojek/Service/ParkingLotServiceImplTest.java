@@ -27,9 +27,9 @@ public class ParkingLotServiceImplTest {
     public void setUp() throws Exception {
         parkingLotService = new ParkingLotServiceImpl();
         parkingLotService.createParkingLot(5);
-        mockRegistrationNumber="MH 12 RS 1234";
-        mockColor="red";
-        mockVehicle=new Vehicle(mockColor,mockRegistrationNumber);
+        mockRegistrationNumber = "MH 12 RS 1234";
+        mockColor = "red";
+        mockVehicle = new Vehicle(mockColor, mockRegistrationNumber);
     }
 
 

@@ -4,10 +4,9 @@ public class Vehicle {
     String color;
     String registrationNumber;
 
-    public Vehicle(String color, String registrationNumber)
-    {
-        this.color=color;
-        this.registrationNumber=registrationNumber;
+    public Vehicle(String color, String registrationNumber) {
+        this.color = color;
+        this.registrationNumber = registrationNumber;
     }
 
     public String getColor() {

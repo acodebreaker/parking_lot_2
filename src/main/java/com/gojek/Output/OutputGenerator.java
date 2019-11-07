@@ -5,15 +5,14 @@ import com.gojek.Delegates.ParkingDelegateImpl;
 
 public class OutputGenerator {
 
-    static Delegates.ParkingDelegate parkingDelegate=new ParkingDelegateImpl() ;
+    static Delegates.ParkingDelegate parkingDelegate = new ParkingDelegateImpl();
 
-    public  static void  generate(String inputCommand){
-        String []inputs=inputCommand.split(" ");
+    public static void generate(String inputCommand) {
+        String[] inputs = inputCommand.split(" ");
 
-        CommandTypes.valueOf(inputs[0].toUpperCase()).takeAction(inputs,parkingDelegate);
+        CommandTypes.valueOf(inputs[0].toUpperCase()).takeAction(inputs, parkingDelegate);
 
 
     }
-
 
 }

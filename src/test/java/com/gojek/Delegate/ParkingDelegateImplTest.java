@@ -17,21 +17,20 @@ import static org.mockito.Mockito.verify;
 public class ParkingDelegateImplTest {
 
     @InjectMocks
-    ParkingDelegateImpl parkingDelegate ;
+    ParkingDelegateImpl parkingDelegate;
 
     @Mock
     ParkingLotServiceImpl parkingLotService;
 
     @Test
-    public void shouldCreateParkingLot()
-    {
+    public void shouldCreateParkingLot() {
         parkingDelegate.createParkingLot(5);
         verify(parkingLotService).createParkingLot(5);
     }
 
     @Test
     public void testParkVehicle() throws SlotNotAvailableException {
-        Vehicle mockVehicle = new Vehicle("red","MH 12 RH 6501");
+        Vehicle mockVehicle = new Vehicle("red", "MH 12 RH 6501");
         parkingDelegate.parkVehicle(mockVehicle);
         verify(parkingLotService).parkVehicle(mockVehicle);
 

@@ -40,10 +40,10 @@ public class OutputGeneratorTest {
 
         OutputGenerator.generate("registration_numbers_for_cars_with_colour White");
 
-        String []expected= outContent.toString().split("\n");
+        String[] expected = outContent.toString().split("\n");
         Assert.assertEquals(expected[0], "Created a parking lot with 6 slots");
-        Assert.assertEquals(expected[1],"Allocated slot number: 1");
-        Assert.assertEquals(expected[2],"KA-01-HH-1234");
+        Assert.assertEquals(expected[1], "Allocated slot number: 1");
+        Assert.assertEquals(expected[2], "KA-01-HH-1234");
     }
 
     @Test
@@ -53,11 +53,11 @@ public class OutputGeneratorTest {
         OutputGenerator.generate("leave 1");
         OutputGenerator.generate("leave 2");
 
-        String []expected= outContent.toString().split("\n");
+        String[] expected = outContent.toString().split("\n");
         Assert.assertEquals(expected[0], "Created a parking lot with 6 slots");
-        Assert.assertEquals(expected[1],"Allocated slot number: 1");
-        Assert.assertEquals(expected[2],"Slot number 1 is free");
-        Assert.assertEquals(expected[3],"Not found");
+        Assert.assertEquals(expected[1], "Allocated slot number: 1");
+        Assert.assertEquals(expected[2], "Slot number 1 is free");
+        Assert.assertEquals(expected[3], "Not found");
     }
 
     @Test
@@ -66,11 +66,11 @@ public class OutputGeneratorTest {
         OutputGenerator.generate("park KA-01-HH-1234 White");
         OutputGenerator.generate("park KA-01-HH-3678 White");
         OutputGenerator.generate("slot_numbers_for_cars_with_colour White");
-        String []expected= outContent.toString().split("\n");
+        String[] expected = outContent.toString().split("\n");
         Assert.assertEquals(expected[0], "Created a parking lot with 6 slots");
-        Assert.assertEquals(expected[1],"Allocated slot number: 1");
-        Assert.assertEquals(expected[2],"Allocated slot number: 2");
-        Assert.assertEquals(expected[3],"1, 2");
+        Assert.assertEquals(expected[1], "Allocated slot number: 1");
+        Assert.assertEquals(expected[2], "Allocated slot number: 2");
+        Assert.assertEquals(expected[3], "1, 2");
     }
 
     @Test
@@ -80,12 +80,12 @@ public class OutputGeneratorTest {
         OutputGenerator.generate("park KA-01-HH-3678 White");
         OutputGenerator.generate("slot_number_for_registration_number KA-01-HH-3678");
         OutputGenerator.generate("slot_number_for_registration_number KA-01-HH-5678");
-        String []expected= outContent.toString().split("\n");
+        String[] expected = outContent.toString().split("\n");
         Assert.assertEquals(expected[0], "Created a parking lot with 6 slots");
-        Assert.assertEquals(expected[1],"Allocated slot number: 1");
-        Assert.assertEquals(expected[2],"Allocated slot number: 2");
-        Assert.assertEquals(expected[3],"2");
-        Assert.assertEquals(expected[4],"Not found");
+        Assert.assertEquals(expected[1], "Allocated slot number: 1");
+        Assert.assertEquals(expected[2], "Allocated slot number: 2");
+        Assert.assertEquals(expected[3], "2");
+        Assert.assertEquals(expected[4], "Not found");
     }
 
     @Test
@@ -96,12 +96,11 @@ public class OutputGeneratorTest {
         OutputGenerator.generate("park KA-01-HH-9861 Red");
 
 
-
-        String []expected= outContent.toString().split("\n");
+        String[] expected = outContent.toString().split("\n");
         Assert.assertEquals(expected[0], "Created a parking lot with 2 slots");
-        Assert.assertEquals(expected[1],"Allocated slot number: 1");
-        Assert.assertEquals(expected[2],"Allocated slot number: 2");
-        Assert.assertEquals(expected[3],"Sorry, parking lot is full");
+        Assert.assertEquals(expected[1], "Allocated slot number: 1");
+        Assert.assertEquals(expected[2], "Allocated slot number: 2");
+        Assert.assertEquals(expected[3], "Sorry, parking lot is full");
 
     }
 
@@ -112,12 +111,12 @@ public class OutputGeneratorTest {
         OutputGenerator.generate("park KA-01-HH-9876 White");
         OutputGenerator.generate("status");
 
-        String []expected= outContent.toString().split("\n");
+        String[] expected = outContent.toString().split("\n");
         Assert.assertEquals(expected[0], "Created a parking lot with 3 slots");
-        Assert.assertEquals(expected[1],"Allocated slot number: 1");
-        Assert.assertEquals(expected[2],"Allocated slot number: 2");
+        Assert.assertEquals(expected[1], "Allocated slot number: 1");
+        Assert.assertEquals(expected[2], "Allocated slot number: 2");
         Assert.assertEquals(expected[3], "Slot No.  Registration No  Colour");
-        Assert.assertEquals(expected[4],"1         KA-01-HH-1234    White");
+        Assert.assertEquals(expected[4], "1         KA-01-HH-1234    White");
 
     }
 

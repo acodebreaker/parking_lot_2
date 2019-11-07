@@ -26,7 +26,7 @@ public class ParkingLotServiceImpl implements Service.ParkingLotService {
         List<ParkingSlot> parkingSlots = new ArrayList<>();
         availableSlots = new PriorityQueue<ParkingSlot>(Comparator.comparingInt(ParkingSlot::getSlotNumber));
         for (int i = 0; i < totalSlots; i++) {
-            ParkingSlot slot = new ParkingSlot(i+1);
+            ParkingSlot slot = new ParkingSlot(i + 1);
             parkingSlots.add(slot);
             availableSlots.add(slot);
         }
@@ -48,8 +48,8 @@ public class ParkingLotServiceImpl implements Service.ParkingLotService {
     @Override
     public void leaveParkingSlot(int parkingSlotNumber) throws NoSuchSlotException {
         try {
-            ParkingSlot parkingSlot=parkingLot.getParkingSlots().get(parkingSlotNumber-1);
-            if(parkingSlot.getVehicleParked()==null)
+            ParkingSlot parkingSlot = parkingLot.getParkingSlots().get(parkingSlotNumber - 1);
+            if (parkingSlot.getVehicleParked() == null)
                 throw new IndexOutOfBoundsException();
 
             parkingSlot.setVehicleParked(null);
@@ -62,7 +62,7 @@ public class ParkingLotServiceImpl implements Service.ParkingLotService {
 
     @Override
     public List<ParkingSlot> getStatusOfParkingLot() {
-            return parkingLot.getParkingSlots();
+        return parkingLot.getParkingSlots();
 
     }
 
@@ -85,7 +85,7 @@ public class ParkingLotServiceImpl implements Service.ParkingLotService {
         List<ParkingSlot> slots = parkingLot.getParkingSlots();
 
         for (ParkingSlot slot : slots) {
-            if(slot.getVehicleParked()==null)
+            if (slot.getVehicleParked() == null)
                 continue;
             if (slot.getVehicleParked().getRegistrationNumber().equals(registrationNumber))
                 return slot.getSlotNumber();
@@ -98,7 +98,7 @@ public class ParkingLotServiceImpl implements Service.ParkingLotService {
     public List<String> getRegistrationNumbersForCarsWithColor(String color) {
         List<ParkingSlot> slots = parkingLot.getParkingSlots();
 
-        if(slots==null)
+        if (slots == null)
             return null;
 
         List<String> registrationNumbers = new ArrayList<>();

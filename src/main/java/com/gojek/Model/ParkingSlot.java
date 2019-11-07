@@ -9,9 +9,8 @@ public class ParkingSlot {
 
     Vehicle vehicleParked;
 
-    public ParkingSlot(int slotNumber)
-    {
-        this.slotNumber=slotNumber;
+    public ParkingSlot(int slotNumber) {
+        this.slotNumber = slotNumber;
     }
 
     public int getSlotNumber() {
@@ -21,7 +20,6 @@ public class ParkingSlot {
     public Vehicle getVehicleParked() {
         return vehicleParked;
     }
-
 
 
 }

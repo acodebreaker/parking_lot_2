@@ -21,7 +21,7 @@ public class CommandTypesTest {
     public void shouldCallParkVehicleMethodForPARKCommand() {
 
         CommandTypes.PARK.takeAction(new String[]{"park", "MH-12-1234", "yellow"}, parkingDelegate);
-        verify(parkingDelegate).parkVehicle(Matchers.refEq(new Vehicle("yellow","MH-12-1234")) );
+        verify(parkingDelegate).parkVehicle(Matchers.refEq(new Vehicle("yellow", "MH-12-1234")));
     }
 
     @Test
