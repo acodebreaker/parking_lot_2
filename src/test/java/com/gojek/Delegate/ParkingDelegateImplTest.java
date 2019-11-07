@@ -31,7 +31,7 @@ public class ParkingDelegateImplTest {
 
     @Test
     public void testParkVehicle() throws SlotNotAvailableException {
-        Vehicle mockVehicle = new Vehicle();
+        Vehicle mockVehicle = new Vehicle("red","MH 12 RH 6501");
         parkingDelegate.parkVehicle(mockVehicle);
         verify(parkingLotService).parkVehicle(mockVehicle);
 

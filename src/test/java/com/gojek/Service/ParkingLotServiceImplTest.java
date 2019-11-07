@@ -26,8 +26,8 @@ public class ParkingLotServiceImplTest {
     @Test
     public void testCreateParkingLot() {
 
-
-
+        Assert.assertEquals(5, parkingLotService.getAvailableSlots().size());
+        Assert.assertEquals(5, parkingLotService.getStatusOfParkingLot().size());
 
     }
 
