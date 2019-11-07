@@ -45,7 +45,9 @@ public class ParkingLotServiceImpl implements Service.ParkingLotService {
 
     @Override
     public List<ParkingSlot> getStatusOfParkingLot() {
-        return null;
+        {
+            return parkingLot.getParkingSlots();
+
     }
 
     @Override
