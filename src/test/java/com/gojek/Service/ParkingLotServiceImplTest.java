@@ -2,6 +2,7 @@ package com.gojek.Service;
 
 import com.gojek.Exceptions.NoSuchSlotException;
 import com.gojek.Exceptions.SlotNotAvailableException;
+import com.gojek.Model.Vehicle;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,7 +34,11 @@ public class ParkingLotServiceImplTest {
 
     @Test
     public void testParkVehicle() throws SlotNotAvailableException {
+        Assert.assertEquals(parkingLotService.getAvailableSlots().peek().getSlotNumber(), 1);
+        Vehicle mockVehicle= new Vehicle("red","MH 12 RS 1234");
+        parkingLotService.parkVehicle(mockVehicle);
 
+        Assert.assertEquals(parkingLotService.getAvailableSlots().peek().getSlotNumber(), 2);
 
 
     }
