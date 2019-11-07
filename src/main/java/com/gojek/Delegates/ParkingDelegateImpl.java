@@ -4,14 +4,19 @@ import com.gojek.Exceptions.NoSuchSlotException;
 import com.gojek.Exceptions.SlotNotAvailableException;
 import com.gojek.Model.ParkingSlot;
 import com.gojek.Model.Vehicle;
+import com.gojek.Service.ParkingLotServiceImpl;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ParkingDelegateImpl implements Delegates.ParkingDelegate {
 
-    Service.ParkingLotService parkingLotService;
+    Service.ParkingLotService parkingLotService = new ParkingLotServiceImpl();
 
     @Override
     public void createParkingLot(int totalSlots) {
         parkingLotService.createParkingLot(totalSlots);
+        System.out.println("Created a parking lot with " + totalSlots + " slots" );
     }
 
     @Override
@@ -48,6 +53,7 @@ public class ParkingDelegateImpl implements Delegates.ParkingDelegate {
 
     @Override
     public void getRegistrationNumbersForCarsWithColor(String color) {
-        parkingLotService.getRegistrationNumbersForCarsWithColor(color);
+        List<String> registrationNumbers = parkingLotService.getRegistrationNumbersForCarsWithColor(color);
+        System.out.println(registrationNumbers.stream().map(Object::toString).collect(Collectors.joining(",")).toString());
     }
 }
