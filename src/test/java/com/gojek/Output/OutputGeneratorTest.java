@@ -28,7 +28,7 @@ public class OutputGeneratorTest {
     }
 
     @Test
-    public void testGenerate() {
+    public void testGenerateCreateParkingLot() {
         OutputGenerator.generate("create_parking_lot 6");
         Assert.assertEquals(outContent.toString(), "Created a parking lot with 6 slots\n");
     }
@@ -83,6 +83,22 @@ public class OutputGeneratorTest {
         Assert.assertEquals(expected[2],"Allocated slot number: 2");
         Assert.assertEquals(expected[3],"2");
         Assert.assertEquals(expected[4],"Not found");
+    }
+
+    @Test
+    public void testGenerateWhenParking() {
+        OutputGenerator.generate("create_parking_lot 2");
+        OutputGenerator.generate("park KA-01-HH-1234 White");
+        OutputGenerator.generate("park KA-01-HH-9876 White");
+        OutputGenerator.generate("park KA-01-HH-9861 Red");
+
+
+
+        String []expected= outContent.toString().split("\n");
+        Assert.assertEquals(expected[0], "Created a parking lot with 2 slots");
+        Assert.assertEquals(expected[1],"Allocated slot number: 1");
+        Assert.assertEquals(expected[2],"Allocated slot number: 2");
+        Assert.assertEquals(expected[3],"Sorry, parking lot is full");
 
     }
 
