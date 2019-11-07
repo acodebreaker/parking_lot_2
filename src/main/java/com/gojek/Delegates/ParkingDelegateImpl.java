@@ -73,7 +73,7 @@ public class ParkingDelegateImpl implements Delegates.ParkingDelegate {
 
     void printParkingStatus(List<ParkingSlot> slots) {
 
-        System.out.println("Slot No." + "\t" + "Registration No." + "\t" + "Colour");
+        System.out.println("Slot No." + "\t" + "Registration No" + "\t" + "Colour");
         for (ParkingSlot slot : slots) {
 
             if (slot.getVehicleParked() != null) {
