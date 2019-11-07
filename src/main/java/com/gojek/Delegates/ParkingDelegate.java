@@ -15,7 +15,7 @@ public interface ParkingDelegate {
 
     void getSlotNumbersForCarsWithColor(String color);
 
-    void getSlotNumberForRegistrationNumber(String registraionNumber);
+    void getSlotNumberForRegistrationNumber(String registrationNumber);
 
     void getRegistrationNumbersForCarsWithColor(String color);
 }

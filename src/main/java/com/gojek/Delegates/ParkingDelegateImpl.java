@@ -54,8 +54,12 @@ public class ParkingDelegateImpl implements Delegates.ParkingDelegate {
     }
 
     @Override
-    public void getSlotNumberForRegistrationNumber(String registraionNumber) {
-        parkingLotService.getSlotNumberForRegistrationNumber(registraionNumber);
+    public void getSlotNumberForRegistrationNumber(String registrationNumber) {
+        int slotNumber = parkingLotService.getSlotNumberForRegistrationNumber(registrationNumber);
+        if (slotNumber == -1)
+            System.out.println("Not found");
+        else
+            System.out.println(slotNumber);
     }
 
     @Override

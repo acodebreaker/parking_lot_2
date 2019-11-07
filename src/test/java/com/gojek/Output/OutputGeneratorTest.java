@@ -82,7 +82,7 @@ public class OutputGeneratorTest {
         Assert.assertEquals(expected[1],"Allocated slot number: 1");
         Assert.assertEquals(expected[2],"Allocated slot number: 2");
         Assert.assertEquals(expected[3],"2");
-        Assert.assertEquals(expected[3],"Not found");
+        Assert.assertEquals(expected[4],"Not found");
 
     }
 

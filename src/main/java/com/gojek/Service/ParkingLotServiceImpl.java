@@ -80,7 +80,10 @@ public class ParkingLotServiceImpl implements Service.ParkingLotService {
     @Override
     public int getSlotNumberForRegistrationNumber(String registrationNumber) {
         List<ParkingSlot> slots = parkingLot.getParkingSlots();
+
         for (ParkingSlot slot : slots) {
+            if(slot.getVehicleParked()==null)
+                continue;
             if (slot.getVehicleParked().getRegistrationNumber().equals(registrationNumber))
                 return slot.getSlotNumber();
 

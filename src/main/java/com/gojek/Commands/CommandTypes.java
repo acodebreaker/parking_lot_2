@@ -7,7 +7,6 @@ import com.gojek.Model.Vehicle;
 public enum CommandTypes implements Command {
 
 
-
     PARK {
         @Override
         public void takeAction(String[] inputValues, ParkingDelegate parkingDelegate) {
@@ -40,6 +39,13 @@ public enum CommandTypes implements Command {
         @Override
         public void takeAction(String[] inputValues, ParkingDelegate parkingDelegate) {
             parkingDelegate.getSlotNumbersForCarsWithColor(inputValues[1]);
+        }
+    },
+    SLOT_NUMBER_FOR_REGISTRATION_NUMBER {
+        @Override
+        public void takeAction(String[] inputValues, ParkingDelegate parkingDelegate) {
+
+            parkingDelegate.getSlotNumberForRegistrationNumber(inputValues[1]);
         }
     }
 }
