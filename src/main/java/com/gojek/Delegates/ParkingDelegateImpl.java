@@ -43,9 +43,7 @@ public class ParkingDelegateImpl implements Delegates.ParkingDelegate {
 
     @Override
     public void getStatusOfParkingLot() {
-
         List<ParkingSlot> slots = parkingLotService.getStatusOfParkingLot();
-
         printParkingStatus(slots);
 
     }
@@ -53,6 +51,11 @@ public class ParkingDelegateImpl implements Delegates.ParkingDelegate {
     @Override
     public void getSlotNumbersForCarsWithColor(String color) {
         List<Integer> slotNumbers = parkingLotService.getSlotNumbersForCarsWithColor(color);
+        if(slotNumbers==null||slotNumbers.isEmpty())
+        {
+            System.out.println("Not found");
+            return;
+        }
 
         System.out.println(slotNumbers.stream().map(Object::toString).collect(Collectors.joining(", ")));
     }
@@ -69,6 +72,10 @@ public class ParkingDelegateImpl implements Delegates.ParkingDelegate {
     @Override
     public void getRegistrationNumbersForCarsWithColor(String color) {
         List<String> registrationNumbers = parkingLotService.getRegistrationNumbersForCarsWithColor(color);
+        if(registrationNumbers==null ||registrationNumbers.isEmpty())
+        {
+            System.out.println("Not found"); return;
+        }
         System.out.println(registrationNumbers.stream().map(Object::toString).collect(Collectors.joining(", ")).toString());
     }
 

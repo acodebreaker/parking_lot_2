@@ -44,6 +44,8 @@ public class App
         Scanner sc = new Scanner(System.in);
         while (sc.hasNextLine()) {
             String command = sc.nextLine();
+            if( command==null ||command.isEmpty())
+                return;
             OutputGenerator.generate(command);
         }
     }

@@ -76,7 +76,6 @@ public class ParkingLotServiceImpl implements Service.ParkingLotService {
             if (vehicle != null && vehicle.getColor().equals(color)) {
                 cars.add(i + 1);
             }
-
         }
         return cars;
     }
@@ -98,7 +97,12 @@ public class ParkingLotServiceImpl implements Service.ParkingLotService {
     @Override
     public List<String> getRegistrationNumbersForCarsWithColor(String color) {
         List<ParkingSlot> slots = parkingLot.getParkingSlots();
+
+        if(slots==null)
+            return null;
+
         List<String> registrationNumbers = new ArrayList<>();
+
         for (ParkingSlot slot : slots) {
             if (slot.getVehicleParked() == null)
                 continue;
@@ -106,7 +110,7 @@ public class ParkingLotServiceImpl implements Service.ParkingLotService {
                 registrationNumbers.add(slot.getVehicleParked().getRegistrationNumber());
 
         }
-        if (registrationNumbers.size() == 0)
+        if (registrationNumbers.isEmpty())
             return null;
         else
             return registrationNumbers;
