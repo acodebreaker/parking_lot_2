@@ -35,6 +35,12 @@ public enum CommandTypes implements Command {
             int slotNumber = Integer.parseInt(inputValues[1]);
             parkingDelegate.leaveParkingSlot(slotNumber);
         }
+    },
+    SLOT_NUMBERS_FOR_CARS_WITH_COLOUR {
+        @Override
+        public void takeAction(String[] inputValues, ParkingDelegate parkingDelegate) {
+            parkingDelegate.getSlotNumbersForCarsWithColor(inputValues[1]);
+        }
     }
 }
 
