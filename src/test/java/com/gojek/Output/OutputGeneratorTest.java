@@ -70,6 +70,24 @@ public class OutputGeneratorTest {
         Assert.assertEquals(expected[3],"1, 2");
     }
 
+    @Test
+    public void testGenerateWhenSlotNumbersByRegNo() {
+        OutputGenerator.generate("create_parking_lot 6");
+        OutputGenerator.generate("park KA-01-HH-1234 White");
+        OutputGenerator.generate("park KA-01-HH-3678 White");
+        OutputGenerator.generate("slot_number_for_registration_number KA-01-HH-3678");
+        OutputGenerator.generate("slot_number_for_registration_number KA-01-HH-5678");
+        String []expected= outContent.toString().split("\n");
+        Assert.assertEquals(expected[0], "Created a parking lot with 6 slots");
+        Assert.assertEquals(expected[1],"Allocated slot number: 1");
+        Assert.assertEquals(expected[2],"Allocated slot number: 2");
+        Assert.assertEquals(expected[3],"2");
+        Assert.assertEquals(expected[3],"Not found");
+
+    }
+
+
+
 
 
 
